@@ -23,17 +23,19 @@
 		</dict>
 		<dict>
 			<key>BinaryPath</key>
-			<string>KeyWordDetection.framework/KeyWordDetection</string>
+			<string>KeyWordDetection.framework/Versions/A/KeyWordDetection</string>
 			<key>LibraryIdentifier</key>
-			<string>ios-arm64</string>
+			<string>ios-x86_64-maccatalyst</string>
 			<key>LibraryPath</key>
 			<string>KeyWordDetection.framework</string>
 			<key>SupportedArchitectures</key>
 			<array>
-				<string>arm64</string>
+				<string>x86_64</string>
 			</array>
 			<key>SupportedPlatform</key>
 			<string>ios</string>
+			<key>SupportedPlatformVariant</key>
+			<string>maccatalyst</string>
 		</dict>
 	</array>
 	<key>CFBundlePackageType</key>
