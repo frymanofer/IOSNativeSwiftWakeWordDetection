@@ -1,11 +1,13 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios13.5-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name KeyWordDetection
+// swift-module-flags: -target arm64-apple-ios13-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name KeyWordDetection
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import AVFAudio
 import AVFoundation
 import AudioToolbox
 import CommonCrypto
+import Compression
+import CoreML
 import Foundation
 @_exported import KeyWordDetection
 import Swift
@@ -13,7 +15,6 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os.log
-import onnxruntime_objc
 import os
 public class AVAudioWrapperBufferCE {
   public init(size: Swift.Int)
@@ -50,7 +51,7 @@ public class AVAudioWrapperFrameListener {
   public func removeFrameListener(_ listener: KeyWordDetection.AVAudioWrapperFrameListener)
   public func clearFrameListeners()
   public func setSessionOptions(sessionOptions: AVFAudio.AVAudioSession.CategoryOptions)
-  public func start(frameLength: Swift.UInt32, sampleRate: Swift.UInt32, setActive: Swift.Bool = true, duckOthers: Swift.Bool = false, mixWithOthers: Swift.Bool = true, defaultToSpeaker: Swift.Bool = true)
+  public func start(frameLength: Swift.UInt32, sampleRate: Swift.UInt32)
   public func stop() throws
   @objc deinit
 }

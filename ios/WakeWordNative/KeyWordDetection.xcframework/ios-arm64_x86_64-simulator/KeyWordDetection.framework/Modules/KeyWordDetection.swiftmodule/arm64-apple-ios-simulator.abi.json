@@ -727,7 +727,7 @@
           {
             "kind": "Function",
             "name": "start",
-            "printedName": "start(frameLength:sampleRate:setActive:duckOthers:mixWithOthers:defaultToSpeaker:)",
+            "printedName": "start(frameLength:sampleRate:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -745,39 +745,11 @@
                 "name": "UInt32",
                 "printedName": "Swift.UInt32",
                 "usr": "s:s6UInt32V"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "hasDefaultArg": true,
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "hasDefaultArg": true,
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "hasDefaultArg": true,
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "hasDefaultArg": true,
-                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:16KeyWordDetection16AVAudioWrapperCEC5start11frameLength10sampleRate9setActive10duckOthers07mixWithO016defaultToSpeakerys6UInt32V_ALS4btF",
-            "mangledName": "$s16KeyWordDetection16AVAudioWrapperCEC5start11frameLength10sampleRate9setActive10duckOthers07mixWithO016defaultToSpeakerys6UInt32V_ALS4btF",
+            "usr": "s:16KeyWordDetection16AVAudioWrapperCEC5start11frameLength10sampleRateys6UInt32V_AHtF",
+            "mangledName": "$s16KeyWordDetection16AVAudioWrapperCEC5start11frameLength10sampleRateys6UInt32V_AHtF",
             "moduleName": "KeyWordDetection",
             "declAttributes": [
               "AccessControl",
@@ -2250,8 +2222,15 @@
       },
       {
         "kind": "Import",
-        "name": "onnxruntime_objc",
-        "printedName": "onnxruntime_objc",
+        "name": "CoreML",
+        "printedName": "CoreML",
+        "declKind": "Import",
+        "moduleName": "KeyWordDetection"
+      },
+      {
+        "kind": "Import",
+        "name": "Compression",
+        "printedName": "Compression",
         "declKind": "Import",
         "moduleName": "KeyWordDetection"
       },
@@ -3117,13 +3096,6 @@
       },
       {
         "kind": "Import",
-        "name": "onnxruntime_objc",
-        "printedName": "onnxruntime_objc",
-        "declKind": "Import",
-        "moduleName": "KeyWordDetection"
-      },
-      {
-        "kind": "Import",
         "name": "AVFAudio",
         "printedName": "AVFAudio",
         "declKind": "Import",
@@ -3694,13 +3666,6 @@
       },
       {
         "kind": "Import",
-        "name": "onnxruntime_objc",
-        "printedName": "onnxruntime_objc",
-        "declKind": "Import",
-        "moduleName": "KeyWordDetection"
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -3829,903 +3794,784 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
       "kind": "IntegerLiteral",
       "offset": 922,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
       "kind": "IntegerLiteral",
       "offset": 958,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
       "kind": "IntegerLiteral",
       "offset": 997,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
       "kind": "IntegerLiteral",
       "offset": 1052,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
       "kind": "FloatLiteral",
       "offset": 1111,
       "length": 3,
       "value": "5.0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
       "kind": "Array",
       "offset": 3632,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
       "kind": "BooleanLiteral",
       "offset": 3667,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
       "kind": "IntegerLiteral",
-      "offset": 4197,
+      "offset": 4113,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
       "kind": "FloatLiteral",
-      "offset": 4249,
+      "offset": 4165,
       "length": 3,
       "value": "2.0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9898,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9956,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
-      "kind": "BooleanLiteral",
-      "offset": 10018,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapperCE.swift",
-      "kind": "BooleanLiteral",
-      "offset": 10082,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "IntegerLiteral",
       "offset": 176,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "IntegerLiteral",
       "offset": 212,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "IntegerLiteral",
       "offset": 2441,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "IntegerLiteral",
       "offset": 2561,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "Array",
       "offset": 2683,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "BooleanLiteral",
       "offset": 2724,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "IntegerLiteral",
       "offset": 3164,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "FloatLiteral",
       "offset": 3214,
       "length": 3,
       "value": "2.0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "IntegerLiteral",
       "offset": 3263,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "IntegerLiteral",
       "offset": 3299,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "FloatLiteral",
       "offset": 3339,
       "length": 3,
       "value": "0.1"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "BooleanLiteral",
       "offset": 8784,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "BooleanLiteral",
       "offset": 8842,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "BooleanLiteral",
       "offset": 8904,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AVAudioWrapper.swift",
       "kind": "BooleanLiteral",
       "offset": 8968,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/GlobalVariables.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/GlobalVariables.swift",
       "kind": "FloatLiteral",
       "offset": 314,
       "length": 6,
       "value": "0.9999"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/GlobalVariables.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/GlobalVariables.swift",
       "kind": "IntegerLiteral",
       "offset": 359,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "kind": "StringLiteral",
+      "offset": 7216,
+      "length": 41,
+      "value": "\"####%$#$%$#^&^*&*^#$%#$%#$#%^&&*****###\""
+    },
+    {
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 7127,
+      "offset": 16231,
       "length": 2,
       "value": "30"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 7322,
+      "offset": 16428,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 7478,
+      "offset": 16584,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 7619,
+      "offset": 16725,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 7624,
+      "offset": 16730,
       "length": 2,
       "value": "97"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 7917,
+      "offset": 17023,
       "length": 2,
       "value": "80"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 7953,
+      "offset": 17059,
       "length": 2,
       "value": "16"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 7985,
+      "offset": 17091,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 8480,
+      "offset": 17586,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 8526,
+      "offset": 17632,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 8611,
+      "offset": 17717,
       "length": 4,
       "value": "5000"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 8921,
+      "offset": 18028,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 25435,
+      "offset": 41332,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 25493,
+      "offset": 41390,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 25555,
+      "offset": 41452,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 25619,
+      "offset": 41516,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 29316,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 29796,
+      "offset": 45921,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "StringLiteral",
-      "offset": 29841,
-      "length": 12,
-      "value": "\"ORTSession\""
+      "offset": 47717,
+      "length": 8,
+      "value": "\"CoreML\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 29861,
+      "offset": 47733,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "StringLiteral",
-      "offset": 29902,
-      "length": 34,
-      "value": "\"Failed to retrieve output values\""
+      "offset": 47774,
+      "length": 40,
+      "value": "\"Failed to retrieve output MLMultiArray\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 30434,
-      "length": 2,
-      "value": "32"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30649,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30658,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30676,
-      "length": 2,
-      "value": "32"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30734,
+      "offset": 47890,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 30754,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30765,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30786,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30806,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30809,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30820,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30841,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30861,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30864,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30867,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30878,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 31259,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
-      "kind": "IntegerLiteral",
-      "offset": 31264,
+      "offset": 48176,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "kind": "IntegerLiteral",
+      "offset": 48330,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "kind": "FloatLiteral",
+      "offset": 48710,
+      "length": 3,
+      "value": "2.0"
+    },
+    {
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "kind": "FloatLiteral",
+      "offset": 48726,
+      "length": 4,
+      "value": "10.0"
+    },
+    {
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
+      "kind": "FloatLiteral",
+      "offset": 48733,
+      "length": 3,
+      "value": "2.0"
+    },
+    {
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
       "offset": 112,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "StringLiteral",
       "offset": 217,
       "length": 29,
       "value": "\"AudioProcessorFromVADOrFile\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "StringLiteral",
       "offset": 598,
       "length": 17,
       "value": "\"silero_vad.onnx\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
       "offset": 688,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "FloatLiteral",
       "offset": 730,
       "length": 3,
       "value": "0.8"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "FloatLiteral",
       "offset": 809,
       "length": 3,
       "value": "0.8"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "FloatLiteral",
       "offset": 899,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "FloatLiteral",
       "offset": 1003,
       "length": 4,
       "value": "0.45"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "IntegerLiteral",
       "offset": 1161,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "IntegerLiteral",
       "offset": 1208,
       "length": 4,
       "value": "1000"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "Array",
       "offset": 1253,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "Array",
       "offset": 1304,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "IntegerLiteral",
       "offset": 1352,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
       "offset": 3809,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
       "offset": 3867,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
       "offset": 3929,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
       "offset": 3993,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "FloatLiteral",
-      "offset": 15061,
+      "offset": 15067,
       "length": 3,
       "value": "0.1"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "IntegerLiteral",
-      "offset": 15092,
+      "offset": 15098,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "FloatLiteral",
-      "offset": 17222,
+      "offset": 17228,
       "length": 3,
       "value": "0.1"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "IntegerLiteral",
-      "offset": 17245,
+      "offset": 17251,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 20172,
+      "offset": 20178,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 20230,
+      "offset": 20236,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 20292,
+      "offset": 20298,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 20356,
+      "offset": 20362,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
       "kind": "IntegerLiteral",
       "offset": 52,
       "length": 4,
       "value": "1600"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
       "kind": "IntegerLiteral",
       "offset": 259,
       "length": 5,
       "value": "16000"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
       "kind": "IntegerLiteral",
       "offset": 349,
       "length": 4,
       "value": "1600"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
       "kind": "IntegerLiteral",
       "offset": 472,
       "length": 5,
       "value": "16000"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/SlieroVadOnnxModel.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/SlieroVadOnnxModel.swift",
       "kind": "Array",
-      "offset": 377,
+      "offset": 381,
       "length": 7,
       "value": "[16000]"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/SlieroVadOnnxModel.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/SlieroVadOnnxModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 415,
+      "offset": 419,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/SlieroVadOnnxModel.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/SlieroVadOnnxModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 454,
+      "offset": 458,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/SlieroVadOnnxModel.swift",
-      "kind": "Dictionary",
-      "offset": 501,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioSessionAndDuckingManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioSessionAndDuckingManager.swift",
       "kind": "BooleanLiteral",
       "offset": 249,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioSessionAndDuckingManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioSessionAndDuckingManager.swift",
       "kind": "BooleanLiteral",
       "offset": 348,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/AudioSessionAndDuckingManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioSessionAndDuckingManager.swift",
       "kind": "BooleanLiteral",
       "offset": 920,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 113,
       "length": 4,
       "value": "\"c1\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 144,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 174,
       "length": 3,
       "value": "\"f\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 205,
       "length": 3,
       "value": "\"b\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 243,
       "length": 3,
       "value": "\"Z\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 273,
       "length": 3,
       "value": "\"V\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 302,
       "length": 3,
       "value": "\"H\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 333,
       "length": 3,
       "value": "\"Y\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 363,
       "length": 3,
       "value": "\"I\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 394,
       "length": 3,
       "value": "\"T\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 426,
       "length": 3,
       "value": "\"k\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 454,
       "length": 3,
       "value": "\"m\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 482,
       "length": 3,
       "value": "\"Y\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 510,
       "length": 3,
       "value": "\"D\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 543,
       "length": 3,
       "value": "\"R\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 571,
       "length": 3,
       "value": "\"O\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 600,
       "length": 3,
       "value": "\"4\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 631,
       "length": 3,
       "value": "\"w\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 660,
       "length": 3,
       "value": "\"c\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 693,
       "length": 3,
       "value": "\"Z\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 722,
       "length": 3,
       "value": "\"V\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 751,
       "length": 3,
       "value": "\"1\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 780,
       "length": 3,
       "value": "\"T\""
     },
     {
-      "filePath": "\/Users\/oferfryman\/projects\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
+      "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/LicenseManager.swift",
       "kind": "StringLiteral",
       "offset": 811,
       "length": 3,
