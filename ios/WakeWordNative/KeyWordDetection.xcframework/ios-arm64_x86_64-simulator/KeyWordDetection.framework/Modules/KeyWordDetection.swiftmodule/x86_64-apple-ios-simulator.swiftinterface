@@ -6,7 +6,6 @@ import AVFAudio
 import AVFoundation
 import AudioToolbox
 import CommonCrypto
-import Compression
 import CoreML
 import Foundation
 @_exported import KeyWordDetection
