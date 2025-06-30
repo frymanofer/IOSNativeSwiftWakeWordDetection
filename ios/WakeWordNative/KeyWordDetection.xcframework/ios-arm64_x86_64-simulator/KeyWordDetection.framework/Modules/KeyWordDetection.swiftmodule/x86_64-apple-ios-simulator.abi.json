@@ -4056,111 +4056,111 @@
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
       "offset": 17648,
-      "length": 4,
-      "value": "5000"
+      "length": 3,
+      "value": "500"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 17958,
+      "offset": 17957,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 41302,
+      "offset": 41301,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 41360,
+      "offset": 41359,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 41422,
+      "offset": 41421,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 41486,
+      "offset": 41485,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 45892,
+      "offset": 45891,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "StringLiteral",
-      "offset": 47688,
+      "offset": 47687,
       "length": 8,
       "value": "\"CoreML\""
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 47704,
+      "offset": 47703,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "StringLiteral",
-      "offset": 47745,
+      "offset": 47744,
       "length": 40,
       "value": "\"Failed to retrieve output MLMultiArray\""
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 47861,
+      "offset": 47860,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 48147,
+      "offset": 48146,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 48301,
+      "offset": 48300,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "FloatLiteral",
-      "offset": 48681,
+      "offset": 48680,
       "length": 3,
       "value": "2.0"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "FloatLiteral",
-      "offset": 48697,
+      "offset": 48696,
       "length": 4,
       "value": "10.0"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/KeyWordsDetection.swift",
       "kind": "FloatLiteral",
-      "offset": 48704,
+      "offset": 48703,
       "length": 3,
       "value": "2.0"
     },
@@ -4258,112 +4258,112 @@
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 3809,
+      "offset": 3812,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 3867,
+      "offset": 3870,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 3929,
+      "offset": 3932,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 3993,
+      "offset": 3996,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "FloatLiteral",
-      "offset": 15067,
+      "offset": 15085,
       "length": 3,
       "value": "0.1"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "IntegerLiteral",
-      "offset": 15098,
+      "offset": 15116,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "FloatLiteral",
-      "offset": 17228,
+      "offset": 17246,
       "length": 3,
       "value": "0.1"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "IntegerLiteral",
-      "offset": 17251,
+      "offset": 17269,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 20178,
+      "offset": 20196,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 20236,
+      "offset": 20254,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 20298,
+      "offset": 20316,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/AudioProcessorFromVADOrFile.swift",
       "kind": "BooleanLiteral",
-      "offset": 20362,
+      "offset": 20380,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
       "kind": "IntegerLiteral",
-      "offset": 113,
-      "length": 4,
-      "value": "1280"
+      "offset": 602,
+      "length": 3,
+      "value": "640"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
       "kind": "IntegerLiteral",
-      "offset": 328,
+      "offset": 822,
       "length": 5,
       "value": "16000"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
       "kind": "IntegerLiteral",
-      "offset": 418,
+      "offset": 912,
       "length": 4,
       "value": "1600"
     },
     {
       "filePath": "\/Users\/oferfryman\/projects\/tmp\/KeywordDetectionIOSLibPrivate\/Sources\/Constants.swift",
       "kind": "IntegerLiteral",
-      "offset": 541,
+      "offset": 1035,
       "length": 5,
       "value": "16000"
     },
