@@ -10,5 +10,10 @@ ios/WakeWordNative/WakeWordNative.mm
 ios/WakeWordNative/WakeWordNative.h
 We will provide swift api asap.
 
-Work in progress - Please not we are working on making this Native only.
+** IMPORTANT **
+1. Please add the following files to your project:
+"ios/WakeWordNative/models/*"
+2. Add this framework to your project: ios/WakeWordNative/KeyWordDetection.xcframework
+
+Swill work in progress to make it Swift Package plug and play.
 
