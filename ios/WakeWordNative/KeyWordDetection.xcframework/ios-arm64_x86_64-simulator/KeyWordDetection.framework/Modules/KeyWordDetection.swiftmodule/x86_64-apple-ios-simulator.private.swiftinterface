@@ -105,9 +105,10 @@ public class AVAudioWrapper {
 @objc public class KeyWordsDetection : ObjectiveC.NSObject {
   @objc weak public var delegate: (any KeyWordDetection.KeywordDetectionRNDelegate)?
   public var eventSink: (([Swift.String : Any]) -> Swift.Void)?
-  @objc convenience public init(modelPath: Swift.String, threshold: Swift.Float, bufferCnt: Swift.Int) throws
-  @objc public init(modelPath: Swift.String, threshold: Swift.Float, bufferCnt: Swift.Int, cancelEcho: Swift.Bool = false) throws
-  @objc public func replaceKeywordDetectionModel(modelPath: Swift.String, threshold: Swift.Float, bufferCnt: Swift.Int) throws
+  @objc convenience public init(modelName: Swift.String, threshold: Swift.Float, bufferCnt: Swift.Int) throws
+  @objc convenience public init(modelName: Swift.String, threshold: Swift.Float, bufferCnt: Swift.Int, cancelEcho: Swift.Bool = false) throws
+  @objc public init(modelName: Swift.String, modelPath: Swift.String? = nil, threshold: Swift.Float, bufferCnt: Swift.Int, cancelEcho: Swift.Bool = false) throws
+  @objc public func replaceKeywordDetectionModel(modelName: Swift.String, threshold: Swift.Float, bufferCnt: Swift.Int) throws
   @objc public func getKeywordDetectionModel() -> Swift.String
   @objc public func getRecordingWav() -> Swift.String
   @objc public func setKeywordDetectionLicense(licenseKey: Swift.String) -> Swift.Bool

@@ -1,22 +1,30 @@
-//ios/WakeWordNative.mm
-
+// ios/WakeWordNative.mm
 #import "WakeWordNative.h"
-//#import "KeyWordsDetection.h" // Import your KeyWordsDetection library header
+#import <Foundation/Foundation.h>
 
-// Ensure the protocol is correctly imported or declared
-// Assuming the protocol is named 'KeywordDetectionRNDelegate'
+// Make sure your Swift framework/module exposes these:
+// - KeyWordsDetection (Swift class @objc public class KeyWordsDetection)
+// - KeywordDetectionRNDelegate (Swift @objc public protocol KeywordDetectionRNDelegate)
+// - AudioSessionAndDuckingManager (Swift @objc public class/Singleton)
+#import "KeyWordsDetection.h"
+
+static NSString * const kWakeWordDetectedNotification = @"WakeWordDetectedNotification";
+
 @interface KeyWordsDetectionWrapper : NSObject <KeywordDetectionRNDelegate>
 
 @property (nonatomic, strong) KeyWordsDetection *keyWordsDetection;
 @property (nonatomic, strong) NSString *instanceId;
-@property (nonatomic, weak) WakeWordNative *bridge;
+
+/// Optional: hook for native callback without RN
+@property (nonatomic, copy) void (^onEvent)(NSDictionary *eventInfo);
 
 - (instancetype)initWithInstanceId:(NSString *)instanceId
                          modelName:(NSString *)modelName
+                         modelPath:(NSString * _Nullable)modelPath
                          threshold:(float)threshold
                          bufferCnt:(NSInteger)bufferCnt
-                            bridge:(WakeWordNative *)bridge
-                             error:(NSError **)error;
+                         cancelEcho:(BOOL)cancelEcho
+                             error:(NSError * _Nullable * _Nullable)error;
 
 @end
 
@@ -24,213 +32,255 @@
 
 - (instancetype)initWithInstanceId:(NSString *)instanceId
                          modelName:(NSString *)modelName
+                         modelPath:(NSString * _Nullable)modelPath
                          threshold:(float)threshold
                          bufferCnt:(NSInteger)bufferCnt
-                            bridge:(WakeWordNative *)bridge
-                             error:(NSError **)error
+                        cancelEcho:(BOOL)cancelEcho
+                             error:(NSError * _Nullable * _Nullable)error
 {
-    if (self = [super init]) {
-        _instanceId = instanceId;
-        _bridge = bridge;
-        _keyWordsDetection = [[KeyWordsDetection alloc] initWithModelPath:modelName threshold:threshold bufferCnt:bufferCnt error:error];
-        if (*error) {
-            return nil;
-        }
-        _keyWordsDetection.delegate = self;
-    }
-    return self;
+  self = [super init];
+  if (!self) return nil;
+
+  _instanceId = instanceId;
+
+  // NEW Swift constructor:
+  // init(modelName: String, modelPath: String? = nil, threshold: Float, bufferCnt: Int, cancelEcho: Bool = false)
+  //
+  // ObjC selector becomes:
+  // -initWithModelName:modelPath:threshold:bufferCnt:cancelEcho:error:
+  _keyWordsDetection =
+    [[KeyWordsDetection alloc] initWithModelName:modelName
+                                      modelPath:(modelPath.length > 0 ? modelPath : nil)
+                                     threshold:threshold
+                                     bufferCnt:bufferCnt
+                                    cancelEcho:cancelEcho
+                                         error:error];
+
+  if (error && *error) return nil;
+
+  _keyWordsDetection.delegate = self;
+  return self;
 }
 
-// Implement the delegate method
-- (void)KeywordDetectionDidDetectEvent:(NSDictionary *)eventInfo {
-    NSMutableDictionary *mutableEventInfo = [eventInfo mutableCopy];
-    mutableEventInfo[@"instanceId"] = self.instanceId;
-    // This is the callback in react native - change it to your native code:
-    // [_bridge sendEventWithName:@"onKeywordDetectionEvent" body:mutableEventInfo];
+- (void)KeywordDetectionDidDetectEvent:(NSDictionary *)eventInfo
+{
+  NSMutableDictionary *mutableEventInfo = [eventInfo mutableCopy] ?: [NSMutableDictionary new];
+  mutableEventInfo[@"instanceId"] = self.instanceId ?: @"";
+
+  // 1) Optional direct callback
+  if (self.onEvent) {
+    self.onEvent([mutableEventInfo copy]);
+  }
+
+  // 2) Also publish as notification (native-friendly)
+  [[NSNotificationCenter defaultCenter] postNotificationName:kWakeWordDetectedNotification
+                                                      object:nil
+                                                    userInfo:[mutableEventInfo copy]];
 }
 
 @end
 
-@interface WakeWordNative () <RCTBridgeModule>
 
-@property (nonatomic, strong) NSMutableDictionary *instances;
-
+@interface WakeWordNative ()
+@property (nonatomic, strong) NSMutableDictionary<NSString *, KeyWordsDetectionWrapper *> *instances;
 @end
 
 @implementation WakeWordNative
 
-RCT_EXPORT_MODULE();
-
-- (instancetype)init {
-    if (self = [super init]) {
-        _instances = [NSMutableDictionary new];
-    }
-    return self;
-}
-
-+ (BOOL)requiresMainQueueSetup
+- (instancetype)init
 {
-    return YES;
+  self = [super init];
+  if (!self) return nil;
+  _instances = [NSMutableDictionary new];
+  return self;
 }
 
-- (NSArray<NSString *> *)supportedEvents {
-    return @[@"onKeywordDetectionEvent"];
-}
+#pragma mark - Instances
 
-RCT_EXPORT_METHOD(createInstance:(NSString *)instanceId modelName:(NSString *)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+/// Create an instance.
+/// modelPath behavior (matches your Swift init):
+/// - nil/empty: loads "<modelName>.cml" and "first_layers.cml" from bundle (copied to Documents)
+/// - if modelPath points to a .cml file: uses it as keyword model, and takes "first_layers.cml" from same folder
+/// - else: treats modelPath as a directory containing "<modelName>.cml" and "first_layers.cml"
+- (BOOL)createInstance:(NSString *)instanceId
+             modelName:(NSString *)modelName
+             modelPath:(NSString * _Nullable)modelPath
+             threshold:(float)threshold
+             bufferCnt:(NSInteger)bufferCnt
+            cancelEcho:(BOOL)cancelEcho
+                 error:(NSError * _Nullable * _Nullable)error
 {
-    if (self.instances[instanceId]) {
-        reject(@"InstanceExists", [NSString stringWithFormat:@"Instance already exists with ID: %@", instanceId], nil);
-        return;
-    }
+  if (instanceId.length == 0) {
+    if (error) *error = [NSError errorWithDomain:@"WakeWordNative"
+                                            code:100
+                                        userInfo:@{NSLocalizedDescriptionKey:@"instanceId is empty"}];
+    return NO;
+  }
 
-    NSError *error = nil;
-    KeyWordsDetectionWrapper *wrapper = [[KeyWordsDetectionWrapper alloc] initWithInstanceId:instanceId modelName:modelName threshold:threshold bufferCnt:bufferCnt bridge:self error:&error];
-    if (error) {
-        reject(@"CreateError", [NSString stringWithFormat:@"Failed to create instance: %@", error.localizedDescription], nil);
-    } else {
-        self.instances[instanceId] = wrapper;
-        resolve([NSString stringWithFormat:@"Instance created with ID: %@", instanceId]);
-    }
+  if (self.instances[instanceId]) {
+    if (error) *error = [NSError errorWithDomain:@"WakeWordNative"
+                                            code:101
+                                        userInfo:@{NSLocalizedDescriptionKey:
+                                                     [NSString stringWithFormat:@"Instance already exists: %@", instanceId]}];
+    return NO;
+  }
+
+  NSError *localErr = nil;
+  KeyWordsDetectionWrapper *wrapper =
+    [[KeyWordsDetectionWrapper alloc] initWithInstanceId:instanceId
+                                               modelName:modelName
+                                               modelPath:modelPath
+                                               threshold:threshold
+                                               bufferCnt:bufferCnt
+                                              cancelEcho:cancelEcho
+                                                   error:&localErr];
+
+  if (localErr) {
+    if (error) *error = localErr;
+    return NO;
+  }
+
+  self.instances[instanceId] = wrapper;
+  return YES;
 }
 
-RCT_EXPORT_METHOD(disableDucking:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+- (void)destroyInstance:(NSString *)instanceId
 {
-  [AudioSessionAndDuckingManager.shared disableDucking];
-  resolve(@"enabled");
+  KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
+  if (!wrapper) return;
+
+  [wrapper.keyWordsDetection stopListening];
+  [self.instances removeObjectForKey:instanceId];
 }
 
-RCT_EXPORT_METHOD(initAudioSessAndDuckManage:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+#pragma mark - License
+
+- (BOOL)setKeywordDetectionLicense:(NSString *)instanceId
+                        licenseKey:(NSString *)licenseKey
+                             error:(NSError * _Nullable * _Nullable)error
 {
-  [AudioSessionAndDuckingManager.shared initAudioSessAndDuckManage];
-  resolve(@"enabled");
+  KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
+  if (!wrapper || !wrapper.keyWordsDetection) {
+    if (error) *error = [NSError errorWithDomain:@"WakeWordNative"
+                                            code:200
+                                        userInfo:@{NSLocalizedDescriptionKey:
+                                                     [NSString stringWithFormat:@"No instance found: %@", instanceId]}];
+    return NO;
+  }
+  return [wrapper.keyWordsDetection setLicenseWithLicenseKey:licenseKey];
 }
 
-RCT_EXPORT_METHOD(restartListeningAfterDucking:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+#pragma mark - Start/Stop
+
+- (BOOL)startKeywordDetection:(NSString *)instanceId
+                    setActive:(BOOL)setActive
+                   duckOthers:(BOOL)duckOthers
+               mixWithOthers:(BOOL)mixWithOthers
+            defaultToSpeaker:(BOOL)defaultToSpeaker
+                        error:(NSError * _Nullable * _Nullable)error
 {
-  [AudioSessionAndDuckingManager.shared restartListeningAfterDucking];
-  resolve(@"disabled");
+  KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
+  if (!wrapper || !wrapper.keyWordsDetection) {
+    if (error) *error = [NSError errorWithDomain:@"WakeWordNative"
+                                            code:300
+                                        userInfo:@{NSLocalizedDescriptionKey:
+                                                     [NSString stringWithFormat:@"No instance found: %@", instanceId]}];
+    return NO;
+  }
+
+  BOOL success = [wrapper.keyWordsDetection startListeningWithSetActive:setActive
+                                                             duckOthers:duckOthers
+                                                         mixWithOthers:mixWithOthers
+                                                      defaultToSpeaker:defaultToSpeaker];
+
+  if (!success && error) {
+    *error = [NSError errorWithDomain:@"WakeWordNative"
+                                 code:301
+                             userInfo:@{NSLocalizedDescriptionKey:@"Failed to start detection (license invalid or already listening)"}];
+  }
+  return success;
 }
 
-RCT_EXPORT_METHOD(enableAggressiveDucking:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+- (void)stopKeywordDetection:(NSString *)instanceId
 {
-  [AudioSessionAndDuckingManager.shared enableAggressiveDucking];
-  resolve(@"enabled");
+  KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
+  if (!wrapper || !wrapper.keyWordsDetection) return;
+  [wrapper.keyWordsDetection stopListening];
 }
 
-RCT_EXPORT_METHOD(disableDuckingAndCleanup:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+#pragma mark - Replace model (optional)
+
+- (BOOL)replaceKeywordDetectionModel:(NSString *)instanceId
+                          modelName:(NSString *)modelName
+                          threshold:(float)threshold
+                          bufferCnt:(NSInteger)bufferCnt
+                              error:(NSError * _Nullable * _Nullable)error
 {
-  [AudioSessionAndDuckingManager.shared disableDuckingAndCleanup];
-  resolve(@"disabled");
+  KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
+  if (!wrapper || !wrapper.keyWordsDetection) {
+    if (error) *error = [NSError errorWithDomain:@"WakeWordNative"
+                                            code:400
+                                        userInfo:@{NSLocalizedDescriptionKey:
+                                                     [NSString stringWithFormat:@"No instance found: %@", instanceId]}];
+    return NO;
+  }
+
+  NSError *localErr = nil;
+
+  // Your Swift method is:
+  // @objc public func replaceKeywordDetectionModel(modelName: String, threshold: Float, bufferCnt: Int) throws
+  // Objective-C selector becomes:
+  // -replaceKeywordDetectionModelWithModelName:threshold:bufferCnt:error:
+  //
+  // NOTE: If your generated selector name differs, adjust here to match the -Swift.h output.
+  [wrapper.keyWordsDetection replaceKeywordDetectionModelWithModelName:modelName
+                                                             threshold:threshold
+                                                             bufferCnt:bufferCnt
+                                                                 error:&localErr];
+
+  if (localErr) {
+    if (error) *error = localErr;
+    return NO;
+  }
+  return YES;
 }
 
-RCT_EXPORT_METHOD(setKeywordDetectionLicense:(NSString *)instanceId licenseKey:(NSString *)licenseKey resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+#pragma mark - Info
+
+- (NSString * _Nullable)getKeywordDetectionModel:(NSString *)instanceId
+                                          error:(NSError * _Nullable * _Nullable)error
 {
-    KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
-    KeyWordsDetection *instance = wrapper.keyWordsDetection;
-    BOOL isLicensed = NO;
-    if (instance) {
-        isLicensed = [instance setLicenseWithLicenseKey:licenseKey];
-        NSLog(@"License is valid?: %@", isLicensed ? @"YES" : @"NO");
-        resolve(@(isLicensed)); // Wrap BOOL in NSNumber
-    } else {
-        reject(@"InstanceNotFound", [NSString stringWithFormat:@"No instance found with ID: %@", instanceId], nil);
-    }
+  KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
+  if (!wrapper || !wrapper.keyWordsDetection) {
+    if (error) *error = [NSError errorWithDomain:@"WakeWordNative"
+                                            code:500
+                                        userInfo:@{NSLocalizedDescriptionKey:
+                                                     [NSString stringWithFormat:@"No instance found: %@", instanceId]}];
+    return nil;
+  }
+  return [wrapper.keyWordsDetection getKeywordDetectionModel];
 }
 
-RCT_EXPORT_METHOD(replaceKeywordDetectionModel:(NSString *)instanceId modelName:(NSString *)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+- (NSString * _Nullable)getRecordingWav:(NSString *)instanceId
+                                  error:(NSError * _Nullable * _Nullable)error
 {
-    KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
-    KeyWordsDetection *instance = wrapper.keyWordsDetection;
-    if (instance) {
-        NSError *error = nil;
-        [instance replaceKeywordDetectionModelWithModelPath:modelName threshold:threshold bufferCnt:bufferCnt error:&error];
-        if (error) {
-            reject(@"ReplaceError", [NSString stringWithFormat:@"Failed to replace model: %@", error.localizedDescription], nil);
-        } else {
-            resolve([NSString stringWithFormat:@"Instance ID: %@ changed model to %@", instanceId, modelName]);
-        }
-    } else {
-        reject(@"InstanceNotFound", [NSString stringWithFormat:@"No instance found with ID: %@", instanceId], nil);
-    }
+  KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
+  if (!wrapper || !wrapper.keyWordsDetection) {
+    if (error) *error = [NSError errorWithDomain:@"WakeWordNative"
+                                            code:501
+                                        userInfo:@{NSLocalizedDescriptionKey:
+                                                     [NSString stringWithFormat:@"No instance found: %@", instanceId]}];
+    return nil;
+  }
+  return [wrapper.keyWordsDetection getRecordingWav];
 }
 
-RCT_EXPORT_METHOD(startKeywordDetection:(NSString *)instanceId 
-    threshold:(float)threshold 
-    setActive:(BOOL)setActive
-    duckOthers:(BOOL)duckOthers
-    mixWithOthers:(BOOL)mixWithOthers
-    defaultToSpeaker:(BOOL)defaultToSpeaker
-    resolver:(RCTPromiseResolveBlock)resolve 
-    rejecter:(RCTPromiseRejectBlock)reject)
-{
-    KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
-    KeyWordsDetection *instance = wrapper.keyWordsDetection;
-    if (instance) {
-        BOOL success = [instance startListeningWithSetActive:setActive
-                                                  duckOthers:duckOthers
-                                              mixWithOthers:mixWithOthers
-                                           defaultToSpeaker:defaultToSpeaker];
-        if (success == false) {
-            reject(@"StartError", [NSString stringWithFormat:@"Failed to start detection"], nil);
-        } else {
-            resolve([NSString stringWithFormat:@"Started detection for instance: %@", instanceId]);
-        }
-    } else {
-        reject(@"InstanceNotFound", [NSString stringWithFormat:@"No instance found with ID: %@", instanceId], nil);
-    }
-}
+#pragma mark - Audio ducking helpers (still native)
 
-RCT_EXPORT_METHOD(stopKeywordDetection:(NSString *)instanceId resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
-{
-    KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
-    KeyWordsDetection *instance = wrapper.keyWordsDetection;
-    if (instance) {
-        [instance stopListening];
-        resolve([NSString stringWithFormat:@"Stopped detection for instance: %@", instanceId]);
-    } else {
-        reject(@"InstanceNotFound", [NSString stringWithFormat:@"No instance found with ID: %@", instanceId], nil);
-    }
-}
-
-RCT_EXPORT_METHOD(destroyInstance:(NSString *)instanceId resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
-{
-    KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
-    if (wrapper) {
-        [wrapper.keyWordsDetection stopListening];
-        [self.instances removeObjectForKey:instanceId];
-        resolve([NSString stringWithFormat:@"Destroyed instance: %@", instanceId]);
-    } else {
-        reject(@"InstanceNotFound", [NSString stringWithFormat:@"No instance found with ID: %@", instanceId], nil);
-    }
-}
-
-// Keeping all APIs even if not called in JS yet
-
-RCT_EXPORT_METHOD(getKeywordDetectionModel:(NSString *)instanceId resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
-{
-    KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
-    KeyWordsDetection *instance = wrapper.keyWordsDetection;
-    if (instance) {
-        NSString *modelName = [instance getKeywordDetectionModel];
-        resolve(modelName);
-    } else {
-        reject(@"InstanceNotFound", [NSString stringWithFormat:@"No instance found with ID: %@", instanceId], nil);
-    }
-}
-
-RCT_EXPORT_METHOD(getRecordingWav:(NSString *)instanceId resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
-{
-    KeyWordsDetectionWrapper *wrapper = self.instances[instanceId];
-    KeyWordsDetection *instance = wrapper.keyWordsDetection;
-    if (instance) {
-        NSString *recWavPath = [instance getRecordingWav];
-        resolve(recWavPath);
-    } else {
-        reject(@"InstanceNotFound", [NSString stringWithFormat:@"No instance found with ID: %@", instanceId], nil);
-    }
-}
-
-// You can add more methods here as needed, ensuring they use the instanceId
+- (void)disableDucking { [AudioSessionAndDuckingManager.shared disableDucking]; }
+- (void)initAudioSessAndDuckManage { [AudioSessionAndDuckingManager.shared initAudioSessAndDuckManage]; }
+- (void)restartListeningAfterDucking { [AudioSessionAndDuckingManager.shared restartListeningAfterDucking]; }
+- (void)enableAggressiveDucking { [AudioSessionAndDuckingManager.shared enableAggressiveDucking]; }
+- (void)disableDuckingAndCleanup { [AudioSessionAndDuckingManager.shared disableDuckingAndCleanup]; }
 
 @end

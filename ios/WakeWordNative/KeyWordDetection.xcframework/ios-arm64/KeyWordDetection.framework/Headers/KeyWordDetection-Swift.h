@@ -352,9 +352,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GlobalVariab
 SWIFT_CLASS("_TtC16KeyWordDetection17KeyWordsDetection")
 @interface KeyWordsDetection : NSObject
 @property (nonatomic, weak) id <KeywordDetectionRNDelegate> _Nullable delegate;
-- (nullable instancetype)initWithModelPath:(NSString * _Nonnull)modelPath threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt error:(NSError * _Nullable * _Nullable)error;
-- (nullable instancetype)initWithModelPath:(NSString * _Nonnull)modelPath threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)replaceKeywordDetectionModelWithModelPath:(NSString * _Nonnull)modelPath threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt error:(NSError * _Nullable * _Nullable)error;
+- (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt error:(NSError * _Nullable * _Nullable)error;
+- (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error;
+- (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName modelPath:(NSString * _Nullable)modelPath threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
+- (BOOL)replaceKeywordDetectionModelWithModelName:(NSString * _Nonnull)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt error:(NSError * _Nullable * _Nullable)error;
 - (NSString * _Nonnull)getKeywordDetectionModel SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getRecordingWav SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)setKeywordDetectionLicenseWithLicenseKey:(NSString * _Nonnull)licenseKey SWIFT_WARN_UNUSED_RESULT;
