@@ -354,7 +354,8 @@ SWIFT_CLASS("_TtC16KeyWordDetection17KeyWordsDetection")
 @property (nonatomic, weak) id <KeywordDetectionRNDelegate> _Nullable delegate;
 - (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt error:(NSError * _Nullable * _Nullable)error;
 - (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error;
-- (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName modelPath:(NSString * _Nullable)modelPath threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName modelPath:(NSString * _Nullable)modelPath threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error;
+- (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName modelPaths:(NSArray<NSString *> * _Nonnull)modelPaths threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
 - (BOOL)replaceKeywordDetectionModelWithModelName:(NSString * _Nonnull)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt error:(NSError * _Nullable * _Nullable)error;
 - (NSString * _Nonnull)getKeywordDetectionModel SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getRecordingWav SWIFT_WARN_UNUSED_RESULT;
@@ -741,7 +742,8 @@ SWIFT_CLASS("_TtC16KeyWordDetection17KeyWordsDetection")
 @property (nonatomic, weak) id <KeywordDetectionRNDelegate> _Nullable delegate;
 - (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt error:(NSError * _Nullable * _Nullable)error;
 - (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error;
-- (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName modelPath:(NSString * _Nullable)modelPath threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName modelPath:(NSString * _Nullable)modelPath threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error;
+- (nullable instancetype)initWithModelName:(NSString * _Nonnull)modelName modelPaths:(NSArray<NSString *> * _Nonnull)modelPaths threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt cancelEcho:(BOOL)cancelEcho error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
 - (BOOL)replaceKeywordDetectionModelWithModelName:(NSString * _Nonnull)modelName threshold:(float)threshold bufferCnt:(NSInteger)bufferCnt error:(NSError * _Nullable * _Nullable)error;
 - (NSString * _Nonnull)getKeywordDetectionModel SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getRecordingWav SWIFT_WARN_UNUSED_RESULT;

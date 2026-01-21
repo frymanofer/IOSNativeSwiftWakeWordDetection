@@ -50,7 +50,8 @@ static NSString * const kWakeWordDetectedNotification = @"WakeWordDetectedNotifi
   // -initWithModelName:modelPath:threshold:bufferCnt:cancelEcho:error:
   _keyWordsDetection =
     [[KeyWordsDetection alloc] initWithModelName:modelName
-                                      modelPath:(modelPath.length > 0 ? modelPath : nil)
+                                      // Below is a single array - Also supporting array of paths to search
+                                      modelPath:(modelPath.length > 0 ? modelPath : nil) // You can also provide a string array for searching several paths.
                                      threshold:threshold
                                      bufferCnt:bufferCnt
                                     cancelEcho:cancelEcho
